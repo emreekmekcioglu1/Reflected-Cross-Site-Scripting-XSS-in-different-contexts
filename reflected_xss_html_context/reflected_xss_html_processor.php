@@ -1,13 +1,22 @@
 <?php
 
-//Possible XSS vulnerability in line 3-4
+//Possible XSS vulnerability in line 4
 $searched = $_GET["search_word"];
-echo $searched;  
 
-//Safe code in line 8
-//$aranan = htmlspecialchars($_GET["search_word"], ENT_QUOTES,'UTF-8'); 
-echo $aranan; 
-
-echo " bulunamadı."; //bulunamadı means not found in Turkish language.
+//Safe code in line 7
+//$searched = htmlspecialchars($_GET["search_word"], ENT_QUOTES,'UTF-8'); 
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<p>Aradığınız kelime <?php echo $searched ?> bulunamadı</p>
+	<br>
+	<input type="button" value="Geri" onclick="history.back()">
+</body>
+</html>
