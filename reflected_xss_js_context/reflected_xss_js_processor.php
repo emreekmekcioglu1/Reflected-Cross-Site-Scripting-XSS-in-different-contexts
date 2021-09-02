@@ -1,11 +1,11 @@
 <?php
 
 //Possible XSS vulnerability in line 4
-$aranan = $_GET["search_word"]; 
+$searched = $_GET["search_word"]; 
 
 //Safe code in line 8 or 9; if you want to use line 8 change aranan to aranan_safe at line 23.
 
-$aranan_safe = filter_var($aranan,FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
+$searched_safe = filter_var($aranan,FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
 //$aranan = json_encode(htmlspecialchars($_GET["search_word"],ENT_QUOTES,'UTF-8')); 
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ $aranan_safe = filter_var($aranan,FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH)
 <p id="result"></p>
 <script type="text/javascript">
 	//var MyValue = document.getElementById('searched').value;
-	var x = '<?php echo"$aranan_safe"?>';
+	var x = '<?php echo"$searched"?>';
 	//document.write(x);
 	document.getElementById("result").innerHTML = x;
 	//document.getElementById("result").value = x;
